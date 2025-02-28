@@ -140,7 +140,7 @@ function Register() {
   }
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center p-4">
+    <div className="flex flex-col md:flex-row justify-center items-center p-8">
       <div className="hidden md:block md:w-4/12 mr-12">
         <Image src="/Register.png" alt="Registration Illustration" layout="responsive" width={500} height={500} />
       </div>
@@ -156,7 +156,7 @@ function Register() {
               name='username'
               value={formData.username}
               onChange={handleChange}
-              className={`md:w-1/2 border p-2 rounded mb-2 text-black capitalize focus:border-blue-500 outline-none ${errors.username ? 'border-red-500' : 'border-gray-300'}`}
+              className={`md:w-1/2 pl-3 pr-3 py-2 mb-2 bg-transparent placeholder:text-slate-400 text-slate-600 text-sm border rounded-md transition duration-300 ease focus:border-blue-500 outline-none ${errors.username ? 'border-red-500' : 'border-gray-300'}`}
             />
             <input 
               type="email" 
@@ -164,7 +164,7 @@ function Register() {
               placeholder="Email ID" 
               value={formData.email}
               onChange={handleChange}
-              className={`md:w-1/2 border p-2 rounded mb-2 text-black lowercase focus:border-blue-500 outline-none ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+              className={`md:w-1/2 pl-3 pr-3 py-2 mb-2 bg-transparent placeholder:text-slate-400 text-slate-600 text-sm border rounded-md transition duration-300 ease  focus:border-blue-500 outline-none ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
             />
           </div>
           
@@ -219,7 +219,7 @@ function Register() {
               name='firstName'
               value={formData.firstName}
               onChange={handleChange}
-              className={`border p-2 rounded mb-2 md:mr-2 md:mb-0 md:w-1/2 text-black capitalize focus:border-blue-500 outline-none ${errors.firstName ? 'border-red-500' : 'border-gray-300'}`}
+              className={`pl-3 pr-3 py-2 mb-2 bg-transparent placeholder:text-slate-400 text-slate-600 text-sm border rounded-md transition duration-300 ease md:mr-2 md:mb-0 md:w-1/2 capitalize focus:border-blue-500 outline-none ${errors.firstName ? 'border-red-500' : 'border-gray-300'}`}
             />
             <input 
               type="text" 
@@ -227,7 +227,7 @@ function Register() {
               name='secondName'
               value={formData.secondName}
               onChange={handleChange}
-              className={`border p-2 rounded mb-2 md:ml-2 md:mb-0 md:w-1/2 text-black capitalize focus:border-blue-500 outline-none ${errors.secondName ? 'border-red-500' : 'border-gray-300'}`}
+              className={`pl-3 pr-3 py-2 mb-2 bg-transparent placeholder:text-slate-400 text-slate-600 text-sm border rounded-md transition duration-300 ease md:mr-2 md:mb-0 md:w-1/2 capitalize focus:border-blue-500 outline-none ${errors.secondName ? 'border-red-500' : 'border-gray-300'}`}
             />
           </div>
           
@@ -238,7 +238,7 @@ function Register() {
               name='phoneNumber'
               value={formData.phoneNumber}
               onChange={handleChange}
-              className={`border p-2 rounded mb-2 md:mr-2 md:mb-0 md:w-1/2 text-black capitalize focus:border-blue-500 outline-none ${errors.phoneNumber ? 'border-red-500' : 'border-gray-300'}`}
+              className={`pl-3 pr-3 py-2 mb-2 bg-transparent placeholder:text-slate-400 text-slate-600 text-sm border rounded-md transition duration-300 ease md:mr-2 md:mb-0 md:w-1/2 capitalize focus:border-blue-500 outline-none ${errors.phoneNumber ? 'border-red-500' : 'border-gray-300'}`}
             />
             <input 
               type="text" 
@@ -246,7 +246,7 @@ function Register() {
               name='role'
               value={formData.role}
               onChange={handleChange}
-              className={`border p-2 rounded mb-2 md:ml-2 md:mb-0 md:w-1/2 text-black capitalize focus:border-blue-500 outline-none ${errors.role ? 'border-red-500' : 'border-gray-300'}`}
+              className={`pl-3 pr-3 py-2 mb-2 bg-transparent placeholder:text-slate-400 text-slate-600 text-sm border rounded-md transition duration-300 ease md:mr-2 md:mb-0 md:w-1/2 capitalize focus:border-blue-500 outline-none ${errors.role ? 'border-red-500' : 'border-gray-300'}`}
             />
           </div>
         </fieldset>
@@ -260,7 +260,7 @@ function Register() {
               name='orgName'
               value={formData.orgName}
               onChange={handleChange}
-              className={`border p-2 rounded mb-2 md:mr-2 md:mb-0 md:w-1/2 text-black capitalize focus:border-blue-500 outline-none ${errors.orgName ? 'border-red-500' : 'border-gray-300'}`}
+              className={`pl-3 pr-3 py-2 mb-2 bg-transparent placeholder:text-slate-400 text-slate-600 text-sm border rounded-md transition duration-300 ease md:mr-2 md:mb-0 md:w-1/2 capitalize focus:border-blue-500 outline-none ${errors.orgName ? 'border-red-500' : 'border-gray-300'}`}
             />
             <input 
               type="tel" 
@@ -268,7 +268,7 @@ function Register() {
               name='orgPhone'
               value={formData.orgPhone}
               onChange={handleChange}
-              className={`border p-2 rounded mb-2 md:ml-2 md:mb-0 md:w-1/2 text-black capitalize focus:border-blue-500 outline-none ${errors.orgPhone ? 'border-red-500' : 'border-gray-300'}`}
+              className={`pl-3 pr-3 py-2 mb-2 bg-transparent placeholder:text-slate-400 text-slate-600 text-sm border rounded-md transition duration-300 ease md:mr-2 md:mb-0 md:w-1/2 capitalize focus:border-blue-500 outline-none ${errors.orgPhone ? 'border-red-500' : 'border-gray-300'}`}
             />
           </div>
           <input 
@@ -277,7 +277,7 @@ function Register() {
             name='orgAddress'
             value={formData.orgAddress}
             onChange={handleChange}
-            className={`border p-2 rounded mb-2 w-full text-black capitalize focus:border-blue-500 outline-none ${errors.orgAddress ? 'border-red-500' : 'border-gray-300'}`}
+            className={`pl-3 pr-3 py-2 mb-2 bg-transparent placeholder:text-slate-400 text-slate-600 text-sm border rounded-md  transition duration-300 ease md:mr-2  md:mb-0 md:w-full capitalize focus:border-blue-500 outline-none ${errors.orgAddress ? 'border-red-500' : 'border-gray-300'}`}
           />
         </fieldset>
         
