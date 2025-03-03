@@ -2,7 +2,7 @@
 import React, { useState, FormEvent } from 'react'
 import Image from 'next/image'
 
-
+// typescript Interface for formdata
 interface FormData {
   username: string;
   email: string;
@@ -17,6 +17,7 @@ interface FormData {
   orgAddress: string;
 }
 
+// typescript Interface for form errors
 
 interface FormErrors {
   username?: string;
@@ -49,6 +50,7 @@ function Register() {
 
   const [errors, setErrors] = useState<FormErrors>({})
 
+// Function to validate form data
   const validateForm = (): boolean => {
     let tempErrors: FormErrors = {}
     
@@ -90,7 +92,8 @@ function Register() {
     return Object.keys(tempErrors).length === 0
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  // Function to handle form input changes and update form data
+  const handleChange = async (e: React.ChangeEvent<HTMLInputElement>): Promise<void> => {
     const { name, value } = e.target
     
     setFormData(prev => ({
@@ -102,7 +105,8 @@ function Register() {
     }
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
+  // Function to handle form submission
+  const handleSubmit = async (e: FormEvent):Promise<void> => {
     e.preventDefault()
     if (validateForm()) {
       const submitData = {
@@ -120,6 +124,7 @@ function Register() {
         }
       }
       console.log('Form submitted:', submitData)
+      // Reset form data to default after successful submission
       setFormData({
         username: '',
         email: '',
@@ -148,6 +153,7 @@ function Register() {
       <form className="w-full md:w-6/12 px-10 py-20 bg-white shadow-md rounded" onSubmit={handleSubmit}>
         <h1 className="text-2xl font-bold text-blue-600 text-center -mt-10 mb-5">Registration</h1>
         
+        {/* username and email fields*/}
         <div className="mb-4">
           <div className='flex flex-col md:flex-row md:gap-5'>
             <input 
@@ -168,6 +174,7 @@ function Register() {
             />
           </div>
           
+          {/* Password */}
           <div className='flex flex-col md:flex-row md:gap-5'>
             <div className="w-full max-w-sm min-w-[200px]">
               <div className="relative">
@@ -210,6 +217,7 @@ function Register() {
           </div>
         </div>
         
+        {/* User details fields */}
         <fieldset className="border border-blue-600 rounded-lg p-4 mb-4 flex flex-col gap-4">
           <legend className="text-blue-500 font-semibold border border-blue-200 px-2">User Details</legend>
           <div className="flex flex-col md:flex-row">
@@ -251,6 +259,7 @@ function Register() {
           </div>
         </fieldset>
         
+        {/* Organisation details fields*/}
         <fieldset className="border border-blue-600 rounded-lg p-4 mb-4 flex flex-col gap-4">
           <legend className="text-blue-500 font-semibold border border-blue-200 px-2">Organisation Details</legend>
           <div className="flex flex-col md:flex-row">
@@ -281,6 +290,7 @@ function Register() {
           />
         </fieldset>
         
+        {/* Submit button */}
         <div className='flex justify-center'>
           <button type="submit" className="bg-blue-600 text-white rounded-full py-2 px-4 w-6/12">Submit</button>
         </div>
