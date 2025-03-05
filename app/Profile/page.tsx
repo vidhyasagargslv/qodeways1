@@ -21,7 +21,7 @@ function Profile() {
 
   // Render only if token and user are valid
   if (!token || !user) {
-    return null; // Or a loading state if preferred
+    return null; // Render nothing
   }
 
   return (

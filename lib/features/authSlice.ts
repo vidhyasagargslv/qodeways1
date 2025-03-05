@@ -23,7 +23,6 @@ const initialState: AuthState = {
   token: null,
   user: null,
   error: null,
-
 }
 
 // The authSlice handles authentication state, including user registration success and failure.

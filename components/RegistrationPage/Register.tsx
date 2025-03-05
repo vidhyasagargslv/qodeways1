@@ -91,7 +91,7 @@ function Register() {
   };
 
 
-  /**
+  /** 
  * Handles the form submission for user registration.
  * Validates form data, submits it to the registration API endpoint,
  * and manages the authentication state using Redux.
@@ -135,7 +135,7 @@ function Register() {
         return;
       }
 
-      // Store token and user in Redux
+      //todo Store token and user in Redux
       dispatch(registerSuccess({ token: data.accessToken, user: data.user}));
       router.push('/Profile'); 
     } catch (error) {
@@ -148,7 +148,7 @@ function Register() {
   return (
     <div className="flex flex-col md:flex-row justify-center items-center p-8">
       <div className="hidden md:block md:w-4/12 mr-12">
-        <Image src="/Register.png" alt="Registration Illustration" layout="responsive" width={500} height={500} />
+        <Image src="/Register.png" alt="Registration Illustration" priority={true} layout="responsive" width={500} height={500} />
       </div>
 
       <form className="w-full md:w-6/12 px-10 py-20 bg-white shadow-md rounded" onSubmit={handleSubmit} method='POST'>
@@ -204,7 +204,8 @@ function Register() {
           </div>
         </div>
 
-        <fieldset className="border border-blue-600 rounded-lg p-4 mb-4 flex flex-col gap-4">
+        {/* USer details */}
+        <fieldset className="border border-blue-600 rounded-lg p-4 mb-4 flex flex-col md:gap-2">
           <legend className="text-blue-500 font-semibold border border-blue-200 px-2">User Details</legend>
           <div className="flex flex-col md:flex-row">
             <input
@@ -248,7 +249,8 @@ function Register() {
           {errors.role && <p className="text-red-500 text-xs">{errors.role}</p>}
         </fieldset>
 
-        <fieldset className="border border-blue-600 rounded-lg p-4 mb-4 flex flex-col gap-4">
+        {/* Organisation details */}
+        <fieldset className="border border-blue-600 rounded-lg p-4 mb-4 flex flex-col md:gap-2">
           <legend className="text-blue-500 font-semibold border border-blue-200 px-2">Organisation Details</legend>
           <div className="flex flex-col md:flex-row">
             <input
