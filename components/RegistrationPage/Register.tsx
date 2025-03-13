@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { registerSuccess, registerFailure } from '@/lib/features/authSlice';
 import { useRouter } from 'next/navigation';
 
-interface FormData {
+export interface FormData {
   username: string;
   email: string;
   password: string;
@@ -19,7 +19,7 @@ interface FormData {
   orgAddress: string;
 }
 
-interface FormErrors {
+export interface FormErrors {
   username?: string;
   email?: string;
   password?: string;
@@ -52,7 +52,7 @@ function Register() {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  const validateForm = (): boolean => {
+   const validateForm = (): boolean => {
     let tempErrors: FormErrors = {};
     if (!formData.username || formData.username.trim() === '')
       tempErrors.username = 'Username is required';

@@ -9,6 +9,7 @@ const createJestConfig = nextJest({
 // Add any custom config to be passed to Jest
 const config: Config = {
   clearMocks: true,
+  preset: 'ts-jest',
 
   // Indicates whether the coverage information should be collected while executing the test
   collectCoverage: true,
