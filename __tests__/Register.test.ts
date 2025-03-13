@@ -29,10 +29,7 @@ test('should return true when all form data is valid', () => {
     orgAddress: '123 Test St',
     orgPhone: '9876543210',
   };
-
   const setErrors = jest.fn();
-
-  // Mock the validateForm function context
   const validateForm = function (this: any) {
     let tempErrors: FormErrors = {};
     if (!this.formData.username || this.formData.username.trim() === '')
@@ -61,12 +58,8 @@ test('should return true when all form data is valid', () => {
     this.setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
-
-  // Act
   const code_under_test = validateForm.bind({ formData, setErrors });
   const result = code_under_test();
-
-  // Assert
   expect(result).toBe(true);
   expect(setErrors).toHaveBeenCalledWith({});
 });
