@@ -34,7 +34,7 @@ export interface FormErrors {
   apiError?: string;
 }
 
-function Register() {
+export default function Register() {
   const [formData, setFormData] = useState<FormData>({
     username: '',
     email: '',
@@ -292,4 +292,3 @@ function Register() {
   );
 }
 
-export default Register;

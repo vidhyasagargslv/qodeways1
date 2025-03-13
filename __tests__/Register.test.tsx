@@ -1,5 +1,23 @@
+import React from 'react';
+import { render, fireEvent, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import Register from '@/components/RegistrationPage/Register';
+import { Provider } from 'react-redux';
+import { makeStore } from '@/lib/store';
+import { useRouter } from 'next/navigation';
 
-import { jest } from '@jest/globals';
+// Mock the useRouter hook
+jest.mock('next/navigation', () => ({
+  useRouter: jest.fn(),
+}));
+
+const mockPush = jest.fn();
+
+beforeEach(() => {
+  (useRouter as jest.Mock).mockReturnValue({
+    push: mockPush,
+  });
+});
 
 interface FormErrors {
   username?: string;
@@ -62,4 +80,54 @@ test('should return true when all form data is valid', () => {
   const result = code_under_test();
   expect(result).toBe(true);
   expect(setErrors).toHaveBeenCalledWith({});
+});
+
+//todo: test case for check password and confirm password are not correct then show in ui
+
+describe('Register Component', () => {
+  test('shows error when passwords do not match and Organization phone is not necessary', async () => {
+    render(
+      <Provider store={makeStore()}>
+        <Register />
+      </Provider>
+    );
+
+    // Fill form with mismatched passwords
+    fireEvent.change(screen.getByPlaceholderText('Your password'), { 
+      target: { value: 'Password123' } 
+    });
+    fireEvent.change(screen.getByPlaceholderText('Confirm Your password'), { 
+      target: { value: 'Password1245' } 
+    });
+
+    fireEvent.change(screen.getByPlaceholderText('UserName'), { 
+      target: { value: 'vidhyasagar' } 
+    });
+    fireEvent.change(screen.getByPlaceholderText('Email ID'), { 
+      target: { value: 'test@example.com' } 
+    });
+    fireEvent.change(screen.getByPlaceholderText('First Name'), { 
+      target: { value: 'vidhya' } 
+    });
+    fireEvent.change(screen.getByPlaceholderText('Second Name'), { 
+      target: { value: 'sagar' } 
+    });
+    fireEvent.change(screen.getByPlaceholderText('Phone Number'), { 
+      target: { value: '1234567890' } 
+    });
+    fireEvent.change(screen.getByPlaceholderText('Role'), { 
+      target: { value: 'intern' } 
+    });
+    fireEvent.change(screen.getByPlaceholderText('Organisation Name'), { 
+      target: { value: 'Qodeways' } 
+    });
+    fireEvent.change(screen.getByPlaceholderText('Organisation Address'), { 
+      target: { value: 'Pune , maharashatra' } 
+    });
+    
+    fireEvent.click(screen.getByText('Submit'));
+    
+    const error = await screen.findByText('Passwords must match');
+    expect(error).toBeInTheDocument();
+  });
 });
