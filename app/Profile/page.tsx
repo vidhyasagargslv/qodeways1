@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { RootState } from '@/lib/store'; 
+import React from 'react';
 
 function Profile() {
   const { token, user } = useSelector((state: RootState) => state.auth);
