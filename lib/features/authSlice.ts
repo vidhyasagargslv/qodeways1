@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface AuthState {
+export interface AuthState {
   token: string | null;
   user: {
     username: string;
@@ -36,6 +36,8 @@ const authSlice = createSlice({
         state.error = null;
       },
     registerFailure: (state, action: PayloadAction<string>) => {
+      state.token = null;
+      state.user = null;
       state.error = action.payload;
     },
   },

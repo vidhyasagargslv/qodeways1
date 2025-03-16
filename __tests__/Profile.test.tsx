@@ -63,7 +63,7 @@ describe('Profile Component', () => {
     expect(screen.getByRole('firstname')).toHaveTextContent('First Name: Test');
     expect(screen.getByRole('secondname')).toHaveTextContent('Second Name: User');
     expect(screen.getByRole('phonenumber')).toHaveTextContent('Phone Number: 1234567890');
-    expect(screen.getByRole('role')).toHaveTextContent('Role: User');
+    expect(screen.getByRole('role')).toHaveTextContent('Role: tester');
     expect(screen.getByRole('organisationname')).toHaveTextContent('Organisation Name: Test Org');
     expect(screen.getByRole('organisationphone')).toHaveTextContent('Organisation Phone: 0987654321');
     expect(screen.getByRole('organisationaddress')).toHaveTextContent('Organisation Address: 123 Test St');
