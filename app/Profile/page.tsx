@@ -30,16 +30,16 @@ function Profile() {
         <div className="flex flex-col items-center p-8">
           <h1 className="text-2xl font-bold text-blue-600 mb-4">User Profile</h1>
           <div className="shadow-md rounded p-6 w-full md:w-6/12">
-            <p><strong>Username:</strong> {user.username}</p>
-            <p><strong>Email:</strong> {user.email}</p>
-            <p><strong>First Name:</strong> {user.firstName}</p>
-            <p><strong>Second Name:</strong> {user.secondName}</p>
-            <p><strong>Phone Number:</strong> {user.phoneNumber}</p>
-            <p><strong>Role:</strong> {user.role}</p>
-            <p><strong>Organisation Name:</strong> {user.organisation.name}</p>
-            <p><strong>Organisation Phone:</strong> {user.organisation.phone || 'Not provided'}</p>
-            <p><strong>Organisation Address:</strong> {user.organisation.address}</p>
-            <p className="text-green-600"><strong>Access Token:</strong> {token}</p>
+            <p role='username_data'><strong>Username:</strong> {user.username}</p>
+            <p role='emaildata'><strong>Email:</strong> {user.email}</p>
+            <p role='firstname'><strong>First Name:</strong> {user.firstName}</p>
+            <p role='secondname'><strong>Second Name:</strong> {user.secondName}</p>
+            <p role='phonenumber'><strong>Phone Number:</strong> {user.phoneNumber}</p>
+            <p role='role'><strong>Role:</strong> {user.role}</p>
+            <p role='organisationname'><strong>Organisation Name:</strong> {user.organisation.name}</p>
+            <p role='organisationphone'><strong>Organisation Phone:</strong> {user.organisation.phone || 'Not provided'}</p>
+            <p role='organisationaddress'><strong>Organisation Address:</strong> {user.organisation.address}</p>
+            <p role='token' className="text-green-600"><strong>Access Token:</strong> {token}</p>
           </div>
 
         </div>
