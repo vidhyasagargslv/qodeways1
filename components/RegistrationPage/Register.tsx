@@ -148,7 +148,7 @@ export default function Register() {
   return (
     <div className="flex flex-col md:flex-row justify-center items-center p-8">
       <div className="hidden md:block md:w-4/12 mr-12">
-        <Image src="/Register.png" alt="Registration Illustration" priority={true} layout="responsive" width={500} height={500} />
+        <Image src="/Register.png" alt="Registration Illustration" priority={true} width={500} height={500} />
       </div>
 
       <form className="w-full md:w-6/12 px-10 py-20 bg-white shadow-md rounded" onSubmit={handleSubmit} method='POST'>
