@@ -74,23 +74,11 @@ export async function POST(request: NextRequest) {
       email: data.email,
       role: data.role,
     };
-    console.warn(tokenPayload);
+    
 
     const accessToken = jwt.sign(tokenPayload, JWT_SECRET, { expiresIn: "1h" });
 
-    console.log({
-      message: "Registration successful",
-      accessToken,
-      user: {
-        username: data.username,
-        email: data.email,
-        firstName: data.firstName,
-        secondName: data.secondName,
-        phoneNumber: data.phoneNumber,
-        role: data.role,
-        organisation: data.organisation,
-      },
-    });
+    
 
     // Return success response
     return NextResponse.json(
@@ -110,7 +98,7 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     );
   } catch (error) {
-    console.error("Registration error:", error);
+    
     return NextResponse.json(
       { message: "Internal server error" },
       { status: 500 }

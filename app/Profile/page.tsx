@@ -8,12 +8,11 @@ import React from 'react';
 function Profile() {
   const { token, user } = useSelector((state: RootState) => state.auth);
   const router = useRouter();
-  console.log(user)
+  
 
   useEffect(() => {
     // Check if token exists
     if (!token || typeof token !== 'string') {
-      console.log('No valid token found');
       router.push('/');
       return;
     }

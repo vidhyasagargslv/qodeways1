@@ -118,7 +118,7 @@ export default function Register() {
         address: formData.orgAddress,
       },
     };
-    console.log(submitData);
+    
 
     try {
       const response = await fetch('/api/register', {
