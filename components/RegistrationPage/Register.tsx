@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useDispatch } from 'react-redux';
 import { registerSuccess, registerFailure } from '@/lib/features/authSlice';
 import { useRouter } from 'next/navigation';
+import {setCookie} from 'nookies';
 
 export interface FormData {
   username: string;
@@ -134,6 +135,12 @@ export default function Register() {
         dispatch(registerFailure(data.message || 'Registration failed'));
         return;
       }
+
+      // store token in cookies
+      setCookie(null,'token',data.accessToken,{
+        path: '/',
+        maxAge: 3600,
+      })
 
       //todo Store token and user in Redux
       dispatch(registerSuccess({ token: data.accessToken, user: data.user}));

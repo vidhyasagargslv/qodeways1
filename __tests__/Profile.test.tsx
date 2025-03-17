@@ -15,6 +15,7 @@ jest.mock('next/navigation', () => ({
 const mockPush = jest.fn();
 
 beforeEach(() => {
+  jest.clearAllMocks();
   (useRouter as jest.Mock).mockReturnValue({
     push: mockPush,
   });
@@ -69,4 +70,9 @@ describe('Profile Component', () => {
     expect(screen.getByRole('organisationaddress')).toHaveTextContent('Organisation Address: 123 Test St');
     expect(screen.getByRole('token')).toHaveTextContent('Access Token: valid-token');
   });
+});
+
+// Cleanup mock after each test
+afterEach(() => {
+  jest.clearAllMocks();
 });

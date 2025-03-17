@@ -1,23 +1,12 @@
 "use client";
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
 import { RootState } from '@/lib/store'; 
 import React from 'react';
 
 function Profile() {
   const { token, user } = useSelector((state: RootState) => state.auth);
   const router = useRouter();
-  
-
-  useEffect(() => {
-    // Check if token exists
-    if (!token || typeof token !== 'string') {
-      router.push('/');
-      return;
-    }
-
-  }, [token, router]);
 
   // Render only if token and user are valid
   if (!token || !user) {
@@ -38,7 +27,7 @@ function Profile() {
             <p role='organisationname'><strong>Organisation Name:</strong> {user.organisation.name}</p>
             <p role='organisationphone'><strong>Organisation Phone:</strong> {user.organisation.phone || 'Not provided'}</p>
             <p role='organisationaddress'><strong>Organisation Address:</strong> {user.organisation.address}</p>
-            <p role='token' className="text-green-600"><strong>Access Token:</strong> {token}</p>
+            <p role='token' className="text-green-600 overflow-clip"><strong>Access Token:</strong> {token}</p>
           </div>
 
         </div>
