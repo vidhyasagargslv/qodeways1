@@ -35,7 +35,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="dashboard-container flex h-screen">
+    <div className="dashboard-container flex max-h-screen bg-[#2e1866]">
       {/* Sidebar */}
       <Sidebar
         activeComponent={activeComponent}
